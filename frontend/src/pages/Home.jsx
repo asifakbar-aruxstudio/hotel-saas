@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Hero from "./Hero";
 
 
+
 const Home = () => {
   return (
     <>
@@ -30,6 +31,7 @@ const Home = () => {
           src="https://images.unsplash.com/photo-1566073771259-6a8506099945"
           className="w-[400px] rounded-2xl"
         />
+
       </div>
     </>
   );

@@ -14,8 +14,9 @@ const Navbar = ({ onFilterChange }) => {
     KPK: ["Peshawar"]
   };
 
-  const handleFilter = (prov, cit) => {
-    onFilterChange(prov, cit);
+  // 🔍 Manual Search Button Handler
+  const handleSearch = () => {
+    onFilterChange(province, city);
   };
 
   return (
@@ -24,18 +25,30 @@ const Navbar = ({ onFilterChange }) => {
       {/* Logo */}
       <h1 className="text-xl font-bold">🏨 Hotel SaaS</h1>
 
-      {/* All Hotels Button */}
-      <Link to="/hotels">
-        <button
-          onClick={() => handleFilter("", "")}
-          className="bg-black text-white px-4 py-2 rounded-lg"
-        >
-          All Hotels
-        </button>
-      </Link>
-
-      {/* Filters */}
+      {/* Left Buttons */}
       <div className="flex gap-3">
+        
+        {/* 🏠 Home Button */}
+        <Link to="/">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
+            Home
+          </button>
+        </Link>
+
+        {/* All Hotels Button */}
+        <Link to="/hotels">
+          <button
+            onClick={() => onFilterChange("", "")}
+            className="bg-black text-white px-4 py-2 rounded-lg"
+          >
+            All Hotels
+          </button>
+        </Link>
+
+      </div>
+
+      {/* Filters + Search */}
+      <div className="flex gap-3 items-center">
 
         {/* Province Filter */}
         <select
@@ -44,7 +57,6 @@ const Navbar = ({ onFilterChange }) => {
           onChange={(e) => {
             setProvince(e.target.value);
             setCity("");
-            handleFilter(e.target.value, "");
           }}
         >
           <option value="">Select Province</option>
@@ -59,7 +71,6 @@ const Navbar = ({ onFilterChange }) => {
           value={city}
           onChange={(e) => {
             setCity(e.target.value);
-            handleFilter(province, e.target.value);
           }}
           disabled={!province}
         >
@@ -70,11 +81,19 @@ const Navbar = ({ onFilterChange }) => {
             ))}
         </select>
 
+        {/* 🔍 Search Button */}
+        <button
+          onClick={handleSearch}
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+        >
+          Search
+        </button>
+
       </div>
 
       {/* Hotel Register Button */}
       <Link to="/register-hotel">
-        <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
+        <button className="bg-purple-600 text-white px-4 py-2 rounded-lg">
           Register Hotel
         </button>
       </Link>
