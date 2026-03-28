@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import HotelDashboard from "./dashboard/HotelDashboard";
 import Booking from "./pages/Booking";
+import RegisterHotel from "./components/RegisterHotel";
+
 
 
 
@@ -21,6 +23,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<HotelDashboard />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/register-hotel" element={<RegisterHotel />} />
+
       </Routes>
     </BrowserRouter>
   );
