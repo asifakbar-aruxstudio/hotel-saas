@@ -5,6 +5,7 @@ import HotelCard from "../components/HotelCard";
 
 const Hotels = () => {
   const [filteredHotels, setFilteredHotels] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
 
   const hotels = [
@@ -31,29 +32,54 @@ const Hotels = () => {
     }
   ];
 
-  // 🔍 Search from URL
+  // 🔍 Search Logic
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const search = params.get("search");
 
     if (search) {
-      const filtered = hotels.filter(h =>
+      setSearchQuery(search);
+
+      const filtered = hotels.filter((h) =>
         h.name.toLowerCase().includes(search.toLowerCase())
       );
+
       setFilteredHotels(filtered);
     } else {
       setFilteredHotels([]);
+      setSearchQuery("");
     }
   }, [location.search]);
+
+  const showHotels = searchQuery ? filteredHotels : hotels;
 
   return (
     <>
       <Navbar />
 
-      <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {(filteredHotels.length > 0 ? filteredHotels : hotels).map((hotel) => (
-          <HotelCard key={hotel._id} hotel={hotel} />
-        ))}
+      <div className="p-10">
+
+        {/* 🔍 Show Search Title */}
+        {searchQuery && (
+          <h2 className="text-xl font-bold mb-6">
+            Search Results for: "{searchQuery}"
+          </h2>
+        )}
+
+        {/* ❌ No Hotel Found */}
+        {searchQuery && filteredHotels.length === 0 && (
+          <div className="text-center text-red-500 text-xl mt-10">
+            ❌ Hotel Not Available
+          </div>
+        )}
+
+        {/* ✅ Hotel List */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {showHotels.map((hotel) => (
+            <HotelCard key={hotel._id} hotel={hotel} />
+          ))}
+        </div>
+
       </div>
     </>
   );

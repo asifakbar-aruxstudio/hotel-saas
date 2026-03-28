@@ -12,40 +12,45 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-[80vh] w-full">
+    <div className="relative h-[80vh] w-full overflow-hidden">
 
-      {/* Background Image */}
+      {/* Background Image with Blur */}
       <img
-        src="https://images.unsplash.com/photo-1566073771259-6a8506099945"
+        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
         alt="hotel"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover blur-sm scale-110"
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white p-4">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Text */}
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Find Your Perfect Hotel Stay
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 z-10">
+
+        {/* Heading */}
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+          Find Your Perfect Stay
         </h1>
 
-        <p className="mb-6 text-lg">
-          Search, compare and book the best hotels across Pakistan
+        {/* Sub text */}
+        <p className="mb-6 text-lg text-gray-200">
+          Book hotels easily across Pakistan
         </p>
 
         {/* Search Bar */}
-        <div className="flex w-full max-w-xl">
+        <div className="flex w-full max-w-xl bg-white rounded-xl overflow-hidden shadow-lg">
+
           <input
             type="text"
             placeholder="Search hotel by name..."
-            className="w-full p-3 rounded-l-lg text-black outline-none"
+            className="w-full p-3 text-black outline-none"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
 
           <button
             onClick={handleSearch}
-            className="bg-green-600 px-6 rounded-r-lg"
+            className="bg-green-600 text-white px-6 hover:bg-green-700"
           >
             Search
           </button>
