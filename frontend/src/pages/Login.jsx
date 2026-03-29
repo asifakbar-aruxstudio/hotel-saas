@@ -20,10 +20,16 @@ const Login = () => {
       window.location.href = "/register-hotel";
     }
   };
+  if (user) {
+  localStorage.setItem("loggedInUser", JSON.stringify(user));
+  window.location.href = "/dashboard";
+};
+
 
   return (
     <>
       <Navbar />
+
 
       <div className="min-h-screen flex items-center justify-center bg-black/90">
 
