@@ -1,41 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getLocations } from "../utils/locationHelper";
 
 const Navbar = ({ onFilterChange }) => {
   const [province, setProvince] = useState("");
   const [city, setCity] = useState("");
 
-  const provinces = ["Sindh", "Punjab", "Balochistan", "KPK"];
-  
-  const cities = {
-    Sindh: ["Karachi", "Hyderabad", "Larkana"],
-    Punjab: ["Lahore", "Islamabad", "Rawalpindi"],
-    Balochistan: ["Quetta"],
-    KPK: ["Peshawar"]
-  };
+  const locations = getLocations();
+  const provinces = Object.keys(locations);
 
-  // 🔍 Manual Search Button Handler
   const handleSearch = () => {
     onFilterChange(province, city);
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between p-4 shadow-md gap-4">
-      
-      {/* Logo */}
-      <h1 className="text-xl font-bold">🏨 Hotel SaaS</h1>
+    <div className="flex flex-col md:flex-row items-center justify-between p-4 shadow-md gap-4 bg-white">
 
-      {/* Left Buttons */}
+      <h1 className="text-xl font-bold">
+        <img src="logo.png" alt="Logo" className="h-12" />
+      </h1>
+
       <div className="flex gap-3">
-        
-        {/* 🏠 Home Button */}
         <Link to="/">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
-            Home
-          </button>
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">Home</button>
         </Link>
 
-        {/* All Hotels Button */}
         <Link to="/hotels">
           <button
             onClick={() => onFilterChange("", "")}
@@ -44,13 +33,10 @@ const Navbar = ({ onFilterChange }) => {
             All Hotels
           </button>
         </Link>
-
       </div>
 
-      {/* Filters + Search */}
       <div className="flex gap-3 items-center">
-
-        {/* Province Filter */}
+        {/* Province */}
         <select
           className="border p-2 rounded"
           value={province}
@@ -59,45 +45,39 @@ const Navbar = ({ onFilterChange }) => {
             setCity("");
           }}
         >
-          <option value="">Select Province</option>
-          {provinces.map((p, i) => (
-            <option key={i} value={p}>{p}</option>
+          <option value="">Province</option>
+          {provinces.map((p) => (
+            <option key={p}>{p}</option>
           ))}
         </select>
 
-        {/* City Filter */}
+        {/* City */}
         <select
           className="border p-2 rounded"
           value={city}
-          onChange={(e) => {
-            setCity(e.target.value);
-          }}
+          onChange={(e) => setCity(e.target.value)}
           disabled={!province}
         >
-          <option value="">Select City</option>
+          <option value="">City</option>
           {province &&
-            cities[province]?.map((c, i) => (
-              <option key={i} value={c}>{c}</option>
+            locations[province]?.map((c) => (
+              <option key={c}>{c}</option>
             ))}
         </select>
 
-        {/* 🔍 Search Button */}
         <button
           onClick={handleSearch}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg"
         >
           Search
         </button>
-
       </div>
 
-      {/* Hotel Register Button */}
       <Link to="/register-hotel">
         <button className="bg-purple-600 text-white px-4 py-2 rounded-lg">
           Register Hotel
         </button>
       </Link>
-
     </div>
   );
 };
