@@ -16,9 +16,9 @@ const Hero = () => {
 
       {/* Background Image with Blur */}
       <img
-        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+        src="/heroo.png"
         alt="hotel"
-        className="w-full h-full object-cover blur-sm scale-110"
+        className="w-full h-full object-cover scale-100"
       />
 
       {/* Dark Overlay */}

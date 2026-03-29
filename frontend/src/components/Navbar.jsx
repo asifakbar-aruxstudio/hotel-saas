@@ -17,22 +17,22 @@ const Navbar = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="w-full bg-black/80 backdrop-blur-md shadow-lg">
+    <div className="w-full bg-white shadow-lg fixed top-0 left-0 z-50">
 
       {/* Top Bar */}
       <div className="flex items-center justify-between px-4 py-3">
 
         {/* Logo */}
         <div className="flex items-center gap-2 text-white">
-          <FaHotel className="text-yellow-400 text-2xl" />
-          <h1 className="text-xl font-bold">LuxuryStay</h1>
+           <img src="/logo.png" alt="Logo" className="h-16 px-2"/>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
 
           <Link to="/">
-            <button className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-4 py-2 rounded-xl">
+            <button className="text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               Home
             </button>
           </Link>
@@ -40,7 +40,8 @@ const Navbar = ({ onFilterChange }) => {
           <Link to="/hotels">
             <button
               onClick={() => onFilterChange("", "")}
-              className="text-white border border-white/20 px-4 py-2 rounded-xl"
+              className="text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition"
             >
               All Hotels
             </button>
@@ -48,7 +49,8 @@ const Navbar = ({ onFilterChange }) => {
 
           {/* Filters */}
           <select
-            className="bg-white/10 text-white border border-white/20 p-2 rounded"
+            className="text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition"
             value={province}
             onChange={(e) => {
               setProvince(e.target.value);
@@ -62,7 +64,8 @@ const Navbar = ({ onFilterChange }) => {
           </select>
 
           <select
-            className="bg-white/10 text-white border border-white/20 p-2 rounded"
+            className="text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             disabled={!province}
@@ -74,22 +77,25 @@ const Navbar = ({ onFilterChange }) => {
               ))}
           </select>
 
-          <button
+          {/* <button
             onClick={handleSearch}
-            className="bg-green-500 px-4 py-2 rounded"
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded 
+              transition"
           >
             Search
-          </button>
+          </button> */}
 
           {/* Auth */}
           <Link to="/login">
-            <button className="flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-xl text-white">
+            <button className="flex items-center gap-2 text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               <FaUserCircle /> Login
             </button>
           </Link>
 
           <Link to="/register-hotel">
-            <button className="bg-purple-600 px-4 py-2 rounded-xl text-white">
+            <button className="text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               Register
             </button>
           </Link>
@@ -107,23 +113,25 @@ const Navbar = ({ onFilterChange }) => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden px-4 pb-4 flex flex-col gap-3 text-white">
+        <div className="md:hidden px-4 pb-4 flex flex-col gap-3 text-black bg-white border-t border-gray-300">
 
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            <button className="w-full bg-yellow-500 text-black py-2 rounded">
+            <button className="w-full text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               Home
             </button>
           </Link>
 
           <Link to="/hotels" onClick={() => setMenuOpen(false)}>
-            <button className="w-full border border-white/20 py-2 rounded">
+            <button className="w-full text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               All Hotels
             </button>
           </Link>
 
           {/* Filters */}
           <select
-            className="bg-white/10 p-2 rounded"
+            className="bg-white/10 p-2 rounded text-black w-full border border-blue/80"
             value={province}
             onChange={(e) => {
               setProvince(e.target.value);
@@ -137,7 +145,7 @@ const Navbar = ({ onFilterChange }) => {
           </select>
 
           <select
-            className="bg-white/10 p-2 rounded"
+            className="bg-white/10 p-2 rounded text-black w-full border border-blue/80"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             disabled={!province}
@@ -145,26 +153,30 @@ const Navbar = ({ onFilterChange }) => {
             <option value="">City</option>
             {province &&
               locations[province]?.map((c) => (
-                <option key={c}>{c}</option>
+                <option key={c} className="text-black">
+                  {c}
+                </option>
               ))}
           </select>
 
-          <button
+          {/* <button
             onClick={handleSearch}
             className="bg-green-500 py-2 rounded"
           >
             Search
-          </button>
+          </button> */}
 
           {/* Auth */}
           <Link to="/login" onClick={() => setMenuOpen(false)}>
-            <button className="w-full bg-blue-600 py-2 rounded flex items-center justify-center gap-2">
+            <button className="w-full flex items-center justify-center gap-2 text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               <FaUserCircle /> Login
             </button>
           </Link>
 
           <Link to="/register-hotel" onClick={() => setMenuOpen(false)}>
-            <button className="w-full bg-purple-600 py-2 rounded">
+            <button className="w-full text-black border border-blue/80 px-4 py-2 rounded 
+              hover:bg-blue-700 hover:text-white transition">
               Register
             </button>
           </Link>
