@@ -1,7 +1,27 @@
 // controllers/paymentController.js
-import Payment from "../models/Payment.js";
+import Stripe from "stripe";
 
-export const makePayment = async (req, res) => {
-  const payment = await Payment.create(req.body);
-  res.json(payment);
+const stripe = new Stripe("YOUR_STRIPE_SECRET_KEY");
+
+export const stripePayment = async (req, res) => {
+  const { amount } = req.body;
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: amount * 100,
+    currency: "usd",
+  });
+
+  res.json({ clientSecret: paymentIntent.client_secret });
+};
+
+// controllers/paymentController.js
+export const jazzcashPayment = async (req, res) => {
+  const { amount } = req.body;
+
+  const fakeResponse = {
+    status: "success",
+    transactionId: "JC" + Date.now(),
+  };
+
+  res.json(fakeResponse);
 };
