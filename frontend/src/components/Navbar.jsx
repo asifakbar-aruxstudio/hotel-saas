@@ -31,8 +31,8 @@ const Navbar = ({ onFilterChange }) => {
         <div className="hidden md:flex items-center gap-4">
 
           <Link to="/">
-            <button className="text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               Home
             </button>
           </Link>
@@ -40,8 +40,8 @@ const Navbar = ({ onFilterChange }) => {
           <Link to="/hotels">
             <button
               onClick={() => onFilterChange("", "")}
-              className="text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition"
+              className="text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition"
             >
               All Hotels
             </button>
@@ -49,8 +49,8 @@ const Navbar = ({ onFilterChange }) => {
 
           {/* Filters */}
           <select
-            className="text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition"
+            className="text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition"
             value={province}
             onChange={(e) => {
               setProvince(e.target.value);
@@ -64,8 +64,8 @@ const Navbar = ({ onFilterChange }) => {
           </select>
 
           <select
-            className="text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition"
+            className="text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             disabled={!province}
@@ -87,15 +87,15 @@ const Navbar = ({ onFilterChange }) => {
 
           {/* Auth */}
           <Link to="/login">
-            <button className="flex items-center gap-2 text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="flex items-center gap-2 text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               <FaUserCircle /> Login
             </button>
           </Link>
 
           <Link to="/register-hotel">
-            <button className="text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               Register
             </button>
           </Link>
@@ -116,15 +116,15 @@ const Navbar = ({ onFilterChange }) => {
         <div className="md:hidden px-4 pb-4 flex flex-col gap-3 text-black bg-white border-t border-gray-300">
 
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            <button className="w-full text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="w-full text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               Home
             </button>
           </Link>
 
           <Link to="/hotels" onClick={() => setMenuOpen(false)}>
-            <button className="w-full text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="w-full text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               All Hotels
             </button>
           </Link>
@@ -145,7 +145,7 @@ const Navbar = ({ onFilterChange }) => {
           </select>
 
           <select
-            className="bg-white/10 p-2 rounded text-black w-full border border-blue/80"
+            className="bg-white/10 p-2 rounded text-black w-full border border-green/80"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             disabled={!province}
@@ -168,15 +168,15 @@ const Navbar = ({ onFilterChange }) => {
 
           {/* Auth */}
           <Link to="/login" onClick={() => setMenuOpen(false)}>
-            <button className="w-full flex items-center justify-center gap-2 text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="w-full flex items-center justify-center gap-2 text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               <FaUserCircle /> Login
             </button>
           </Link>
 
           <Link to="/register-hotel" onClick={() => setMenuOpen(false)}>
-            <button className="w-full text-black border border-blue/80 px-4 py-2 rounded 
-              hover:bg-blue-700 hover:text-white transition">
+            <button className="w-full text-black border border-green/80 px-4 py-2 rounded 
+              hover:bg-green-500 hover:text-white transition">
               Register
             </button>
           </Link>

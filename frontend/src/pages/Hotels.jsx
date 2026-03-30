@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import HotelCard from "../components/HotelCard";
+import Hero from "./Hero";
 
 const Hotels = () => {
   const [filteredHotels, setFilteredHotels] = useState([]);
@@ -56,7 +57,7 @@ const Hotels = () => {
   return (
     <>
       <Navbar />
-
+        <Hero />
       <div className="p-10">
 
         {/* 🔍 Show Search Title */}
