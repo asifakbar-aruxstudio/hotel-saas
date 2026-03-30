@@ -20,10 +20,15 @@ const Login = () => {
       window.location.href = "/register-hotel";
     }
   };
+
   if (user) {
   localStorage.setItem("loggedInUser", JSON.stringify(user));
   window.location.href = "/dashboard";
+}else {
+  alert("Hotel not registered ❌ Please register first");
+  window.location.href = "/login";
 };
+
 
 
   return (

@@ -4,7 +4,7 @@ import Hotels from "./pages/Hotels";
 import HotelDetails from "./pages/HotelDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import HotelDashboard from "./dashboard/HotelDashboard";
+import Dashboard from "./dashboard/HotelDashboard";
 import Booking from "./pages/Booking";
 import RegisterHotel from "./components/RegisterHotel";
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/hotel/:id" element={<HotelDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<HotelDashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/register-hotel" element={<RegisterHotel />} />
 
