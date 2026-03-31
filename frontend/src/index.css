@@ -1,14 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 * {
    font-family: "Outfit", sans-serif;
   box-sizing: border-box;
+};
+
+@theme {
+  --color-primary:  #4F46E5;
+  --color-secondery:  #E5E7EB;  
+  --color-heading:  #111827;
+  --color-peragraph:  #374151;  
 }
 
+
+
+/* 
 .input {
   @apply w-full p-3 border rounded mb-4;
 }
@@ -26,4 +36,4 @@
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in-out;
-}
+} */
