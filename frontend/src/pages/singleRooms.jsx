@@ -1,11 +1,11 @@
 import React from 'react'
 
-function singleRooms() {
+function SingleRooms() {
   return (
     <div>
-        <h1>singleRooms</h1>
+        <h1>Single Rooms</h1>
     </div>
   )
 }
 
-export default singleRooms
+export default SingleRooms

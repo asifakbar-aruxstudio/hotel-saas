@@ -1,6 +1,6 @@
 import React from 'react'
 
-function myBooking() {
+function MyBooking() {
   return (
     <div>
       <h1>My Booking</h1> 
@@ -8,4 +8,4 @@ function myBooking() {
   )
 }
 
-export default myBooking
+export default MyBooking
