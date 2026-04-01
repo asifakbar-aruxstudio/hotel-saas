@@ -14,12 +14,9 @@ import Rooms from "./pages/Rooms";
 import SingleRooms from "./pages/SingleRooms";  
   
 
-
-
-
-
 function App() {
   return (
+
     <> 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -35,8 +32,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/register-hotel" element={<RegisterHotel />} />
-
       </Routes>
+    
     </>
   );
 }
