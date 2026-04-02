@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext"; 
 
 const Navbar = () => {
+const {navigate} = useContext(AppContext)
+
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Hotels', path: '/hotels' },
@@ -86,7 +90,10 @@ const Navbar = () => {
                         New Launch
                     </button>
 
-                    <button className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
+                    <button 
+                    onClick={()=> navigate("/login")}
+                    className="bg-black text-white px-8 py-2.5 rounded-full
+                     transition-all duration-500 cursor-pointer hover:bg-gray-800">
                         Login
                     </button>
                 </div>

@@ -13,7 +13,7 @@ import MyBooking from "./pages/MyBooking";
 import About from "./pages/About";
 import Rooms from "./pages/Rooms";
 import SingleRooms from "./pages/SingleRooms";  
-  
+import Footer from "./components/Footer";  
 
 function App() {
   
@@ -40,7 +40,9 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/register-hotel" element={<RegisterHotel />} />
       </Routes>
-    
+    {
+      !ownerPath && <Footer />
+     };
     </>
   );
 }
