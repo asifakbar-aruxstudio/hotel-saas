@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext"; 
 
 const Navbar = () => {
-const {navigate} = useContext(AppContext)
+const {navigate ,user , setUser} = useContext(AppContext)
 
     const navLinks = [
         { name: 'Home', path: '/' },
