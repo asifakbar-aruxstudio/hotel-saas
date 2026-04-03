@@ -126,7 +126,6 @@ const Navbar = ({ onFilterChange }) => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-
             className="border px-4 py-1 rounded hover:bg-green-500 hover:text-white"
           > 
             Login
