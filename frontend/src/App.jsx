@@ -13,6 +13,8 @@ import MyBooking from "./pages/MyBooking";
 import About from "./pages/About";
 import Rooms from "./pages/Rooms";
 import SingleRooms from "./pages/SingleRooms";  
+import RoomDetail from "./pages/RoomDetail";  
+
 import Footer from "./components/Footer";  
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/rooms" element={<Rooms />} />
+        <Route path="/room/:id" element={<RoomDetail />} />
         <Route path="/single-room/:id" element={<SingleRooms />} />
         <Route path="/my-booking" element={<MyBooking />} />
         <Route path="/signup" element={<Signup />} />

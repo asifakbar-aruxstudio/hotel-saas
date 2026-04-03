@@ -1,8 +1,13 @@
+// models/Room.js
+import mongoose from "mongoose";
+
 const roomSchema = new mongoose.Schema({
-  hotel: { type: mongoose.Schema.Types.ObjectId, ref: "Hotel" },
-  name: String,
+  hotelId: { type: mongoose.Schema.Types.ObjectId, ref: "Hotel" },
+  title: String,
   price: Number,
-  available: Boolean,
+  image: String,
+  description: String,
+  city: String,
 });
 
 export default mongoose.model("Room", roomSchema);
