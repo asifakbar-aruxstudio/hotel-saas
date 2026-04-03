@@ -47,7 +47,8 @@ const Navbar = ({ onFilterChange }) => {
         {navLinks.map((link, i) => (
           <Link key={i} to={link.path} className="relative group text-gray-700">
             {link.name}
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-500 transition-all group-hover:w-full"></span>
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-500 
+            transition-all group-hover:w-full"></span>
           </Link>
         ))}
 
@@ -125,9 +126,11 @@ const Navbar = ({ onFilterChange }) => {
         ) : (
           <button
             onClick={() => navigate("/login")}
+
             className="border px-4 py-1 rounded hover:bg-green-500 hover:text-white"
-          >
+          > 
             Login
+            
           </button>
         )}
       </div>
