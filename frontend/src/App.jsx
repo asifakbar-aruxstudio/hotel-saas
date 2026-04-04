@@ -20,12 +20,13 @@ import Footer from "./components/Footer";
 function App() {
   
   const ownerPath = 
-  useLocation().pathname.includes("/owner");
+  useLocation().pathname.includes("/dashboard") ||
+  useLocation().pathname.includes("/register-hotel");
   return (
     <> 
      {
       !ownerPath && <Navbar />
-     };
+     }
       <Routes>
 
         <Route path="/" element={<Home />} />
@@ -45,7 +46,7 @@ function App() {
       </Routes>
     {
       !ownerPath && <Footer />
-     };
+     }
     </>
   );
 }

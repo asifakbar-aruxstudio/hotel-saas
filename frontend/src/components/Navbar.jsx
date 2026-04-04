@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { getLocations } from "../utils/locationHelper";
 import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Navbar = ({ onFilterChange }) => {
-  const { navigate, user, setUser } = useContext(AppContext);
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(AppContext);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [province, setProvince] = useState("");
@@ -33,7 +37,8 @@ const Navbar = ({ onFilterChange }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg shadow-md px-4 md:px-10 py-3 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg 
+    shadow-md px-4 md:px-10 py-3 flex items-center justify-between">
 
       {/* Logo */}
       <Link to="/" className="flex items-center">
